@@ -1,0 +1,17 @@
+# Generated images, device material, local credentials and build environments
+out/
+build/
+*.img
+*.img.gz
+*.ext4
+*.bin
+*.cpio
+*.pub
+*.pem
+*.key
+.env
+known_hosts
+authorized_keys
+node_modules/
+__pycache__/
+.DS_Store

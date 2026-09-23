@@ -1,0 +1,5 @@
+{
+  "defaultProvider": "remote",
+  "defaultModel": "YOUR-MODEL-ID",
+  "defaultThinkingLevel": "off"
+}

@@ -1,0 +1,19 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax and static analysis
+        run: |
+          for script in scripts/*.sh; do bash -n "$script"; done
+          shellcheck scripts/*.sh
+      - name: Partition safety tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Example JSON
+        run: |
+          python3 -m json.tool examples/models.json > /dev/null
+          python3 -m json.tool examples/settings.json > /dev/null
