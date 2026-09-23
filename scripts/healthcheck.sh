@@ -17,10 +17,6 @@ ip -br address
 free -h
 df -h /
 systemctl --failed --no-pager
-no_failed_units() {
- local units
- units=$(systemctl --failed --no-legend --plain) || return
- [[ -z $units ]]
-}
-check no_failed_units
+failed_units=$(systemctl --failed --no-legend --plain) || failed=1
+check test -z "$failed_units"
 exit "$failed"
