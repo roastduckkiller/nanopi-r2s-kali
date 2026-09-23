@@ -18,6 +18,9 @@ one nominal 16 GB microSD. This is not a broad hardware compatibility certificat
 The private baseline used different login provisioning and a private SSH public
 key. That image and device-specific logs are **not release assets**.
 
+The baseline package inventory is [baseline-packages.tsv](baseline-packages.tsv).
+It records the tested private build; it is not a lockfile for future builds.
+
 ## Pi on the same physical board
 
 Node 24.21.0 (Linux ARM64), npm 11.19.0 and Pi 0.87.1 ran successfully. Pi connected
