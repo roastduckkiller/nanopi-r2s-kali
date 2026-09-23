@@ -35,6 +35,15 @@ limit. The public installer pins those versions; the example endpoint is generic
 - Tests reject wrong sector size, missing/extra partitions and wrong rootfs/boot
   offsets or sizes; compact layout preserves the tested rootfs offset.
 - Public health-check script passed on the running board.
+- Public rootfs configuration ran against an offline copy of the baseline on ARM64.
+  A disposable test public key was provisioned; effective sshd configuration
+  confirmed password/keyboard-interactive/root login disabled. Sudo configuration
+  parsed successfully. Device mounts and the original sudo file mode were restored
+  after the offline extraction, which did not preserve them.
+- The public assembly script completed on that offline fixture: both ext4
+  filesystems passed e2fsck, compact GPT passed sfdisk verification, boot payloads
+  matched outside GPT metadata, and gzip integrity plus SHA-256 generation passed.
+  This validates assembly, not a fresh public debootstrap run or physical boot.
 
 The release check does not reflash the user's running board. Public first-boot
 key-only login, arbitrary fresh vendor images, future rolling repository contents,
